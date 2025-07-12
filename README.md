@@ -37,7 +37,7 @@ kubectl apply -k config/manager
 Apply a YAML manifest like the following:
 
 ```yaml
-apiVersion: autoscaling.cloudnatician.com/v1
+apiVersion: autoscaling.dmakeroam.com/v1
 kind: CronHorizontalPodAutoscaler
 metadata:
   name: cronhpa-sample
