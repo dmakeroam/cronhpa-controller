@@ -1,0 +1,9 @@
+apiVersion: autoscaling.dmakeroam.com/v1
+kind: CronHorizontalPodAutoscaler
+metadata:
+  labels:
+    app.kubernetes.io/name: cronhpa-controller
+    app.kubernetes.io/managed-by: kustomize
+  name: cronhorizontalpodautoscaler-sample
+spec:
+  # TODO(user): Add fields here

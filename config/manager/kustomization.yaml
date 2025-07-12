@@ -1,0 +1,5 @@
+resources:
+- crd.yaml
+- namespace.yaml
+- ./rbac
+- manager.yaml

@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/name: cronhpa-controller
+    app.kubernetes.io/managed-by: kustomize
+  name: leader-election-rolebinding
+  namespace: hpa-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: leader-election-role
+  namespace: hpa-system
+subjects:
+- kind: ServiceAccount
+  name: cronhpa-controller-manager
+  namespace: hpa-system

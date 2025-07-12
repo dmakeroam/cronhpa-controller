@@ -1,0 +1,22 @@
+apiVersion: autoscaling.dmakeroam.com/v1
+kind: CronHorizontalPodAutoscaler
+metadata:
+  labels:
+    app.kubernetes.io/name: cronhpa-controller
+    app.kubernetes.io/managed-by: kustomize
+  name: cronhorizontalpodautoscaler-sample
+spec:
+  scaleTargetRef:    # Specify information about the HPA resource.
+    apiVersion: autoscaling/v2
+    kind: HorizontalPodAutoscaler
+    name: hpa-sample
+  jobs:
+  - name: "scale-up-9am"
+    schedule: "0 0 9 * * * " 
+    timezone: "Asia/Bangkok" 
+    minReplicas: 20 
+    runOnce: false
+  - name: "scale-down-5pm"
+    schedule: "0 0 17 * * *" 
+    timezone: "Asia/Bangkok" # default to Asia/Bangkok if not specify
+    runOnce: false
